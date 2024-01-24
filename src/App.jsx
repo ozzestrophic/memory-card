@@ -4,16 +4,16 @@ function App() {
   // game
 
   return (
-    <>
-      <header className=" flex h-1/6 items-center justify-center bg-slate-600 p-4 text-center text-3xl font-bold text-white">
+    <div className=" relative h-screen  bg-opacity-5">
+      <div className=" bg-bg-image-egypt fixed -z-20 h-screen w-screen opacity-70 blur-lg"></div>
+      <header className=" flex h-1/6 items-center justify-center p-4 text-center text-3xl font-bold text-white">
         Memory Game
       </header>
 
-      <main className=" flex h-5/6 flex-col items-center gap-8  bg-slate-200">
-        This is the actual game
+      <main className="flex flex-col items-center gap-8 p-4 ">
         <Game />
       </main>
-    </>
+    </div>
   );
 }
 

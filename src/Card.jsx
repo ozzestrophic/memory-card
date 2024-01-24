@@ -1,7 +1,7 @@
 export default function Card({ url, onClick }) {
   return (
     <div
-      className=" flex h-40 w-40 items-center justify-center rounded-lg bg-amber-600"
+      className=" flex h-40 w-40 items-center justify-center rounded-lg bg-red-500 shadow-lg"
       onClick={onClick}
       id={url}
     >

@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Card from "./Card";
+import Message from "./Message";
 
 // const images = [1, 2, 3, 4, 5, 6, 7, 8];
 const images = [];
@@ -29,6 +30,7 @@ function randomize(array) {
 
 export default function Game() {
   const [clickedImages, setClickedImages] = useState([]);
+  const [finished, setFinished] = useState("no");
   randomize(images);
   const score = useRef(0);
   const highScore = useRef(0);
@@ -38,8 +40,12 @@ export default function Game() {
     if (clickedImages.includes(id)) {
       setClickedImages([]);
       alert("your score is " + score.current);
+
       if (score.current > highScore.current) highScore.current = score.current;
       score.current = 0;
+      setFinished("lost");
+    } else if (clickedImages.length === images.length) {
+      setFinished("won");
     } else {
       const newClickedImage = [...clickedImages];
       newClickedImage.push(id);
@@ -47,11 +53,29 @@ export default function Game() {
       score.current++;
     }
   }
+
+  if (finished === "won") {
+    return <Message text="won" />;
+  } else if (finished === "lost") {
+    return <Message text="lost" />;
+  }
+
   return (
     <>
-      <p>{"Current Score is " + score.current}</p>
-      <p>{"High Score is " + highScore.current}</p>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="flex flex-col gap-5 rounded-lg bg-red-500 p-4 text-center text-xl text-white">
+        <h2 className="text-3xl">
+          اضغط على كل إنجاز <b>مرة واحدة فقط</b>
+        </h2>
+        <div className="flex justify-between">
+          <p className="flex justify-center ">
+            {"السكور الحالي " + score.current}
+          </p>
+          <p className="flex justify-center">
+            {"أعلى سكور " + highScore.current}
+          </p>
+        </div>
+      </div>
+      <div className="grid gap-4 md:grid-cols-4">
         {images.map((image) => {
           return (
             <Card
