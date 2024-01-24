@@ -7,7 +7,6 @@ export default function Game() {
   const [clickedImages, setClickedImages] = useState([]);
   const score = useRef(0);
 
-  console.log(clickedImages);
   function clickEvent(e) {
     if (clickedImages.includes(e.target.id)) {
       setClickedImages([]);
@@ -21,10 +20,13 @@ export default function Game() {
     }
   }
   return (
-    <div className="grid grid-cols-4 gap-4">
-      {images.map((image) => {
-        return <Card key={image} url={image} onClick={clickEvent} />;
-      })}
-    </div>
+    <>
+      <p>{"score is " + score.current}</p>
+      <div className="grid grid-cols-4 gap-4">
+        {images.map((image) => {
+          return <Card key={image} url={image} onClick={clickEvent} />;
+        })}
+      </div>
+    </>
   );
 }
