@@ -8,7 +8,7 @@ const images = [];
 for (let i = 1; i <= 8; i++) {
   images.push({
     id: i,
-    src: `./assets/images/${i}.jpeg`,
+    src: `./src/assets/images/${i}.jpeg`,
   });
 }
 
