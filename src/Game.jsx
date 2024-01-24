@@ -8,7 +8,7 @@ const images = [];
 for (let i = 1; i <= 8; i++) {
   images.push({
     id: i,
-    src: `./src/assets/images/${i}.jpeg`,
+    src: `/src/assets/images/${i}.jpeg`,
   });
 }
 
@@ -39,7 +39,6 @@ export default function Game() {
   function clickEvent(id) {
     if (clickedImages.includes(id)) {
       setClickedImages([]);
-      alert("your score is " + score.current);
 
       if (score.current > highScore.current) highScore.current = score.current;
       score.current = 0;
