@@ -43,13 +43,15 @@ export default function Game() {
       if (score.current > highScore.current) highScore.current = score.current;
       score.current = 0;
       setFinished("lost");
-    } else if (clickedImages.length === images.length) {
-      setFinished("won");
     } else {
       const newClickedImage = [...clickedImages];
       newClickedImage.push(id);
       setClickedImages(newClickedImage);
       score.current++;
+      if (score.current === 8) {
+        setFinished("won");
+        setClickedImages([]);
+      }
     }
   }
 
