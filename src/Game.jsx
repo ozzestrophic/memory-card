@@ -54,9 +54,9 @@ export default function Game() {
   }
 
   if (finished === "won") {
-    return <Message text="won" />;
+    return <Message text="won" clickEvent={() => setFinished("no")} />;
   } else if (finished === "lost") {
-    return <Message text="lost" />;
+    return <Message text="lost" clickEvent={() => setFinished("no")} />;
   }
 
   return (

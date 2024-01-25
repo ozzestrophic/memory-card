@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "bg-image-egypt": "url('./public/assets/egypt.webp')",
+        "bg-image-egypt": "url('./egypt.webp')",
       },
     },
   },
